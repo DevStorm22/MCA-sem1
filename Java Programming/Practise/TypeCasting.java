@@ -20,6 +20,6 @@ class TypeCasting {
 		short s2 = b;
 
 		System.out.println("Implisite Conversion\nbyte = " + b1 + "\nshort = " + s1 + "\nint = " + i1 + "\nlong = " + l1 + "\nfloat = " + f1);
-		System.out.println("Implisite Conversion\nbyte = " + b1 + "\nshort = " + s1 + "\nint = " + i1 + "\nlong = " + l1);
+		System.out.println("Explisite Conversion\nshort = " + s2 + "\nint = " + i2 + "\nlong = " + l2 + "\nfloat = " + f2 + "\ndouble = " + d2);
 	}
 }
