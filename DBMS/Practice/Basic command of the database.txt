@@ -1,0 +1,8 @@
+create database Hospital;
+use Hospital;
+create table patient (id int not null auto_increment primary key, name varchar(50), contact int(10), address varchar(50)); 
+insert into patient values(1, "Kaushik", 1234567890, "Mumbai"); 
+select * from patient;
+insert into patient values(9, "Dhruv", 1234567890, "Ratnagiri"),(10, "Aditya", 1234567890, "Kharghar"),(11, "Sanika", 1234567890, "Chiplun"),(12, "Gargi", 1234567890, "Lonawala"),(13, "Vaibhav", 1234567890, "Khed"),(14, "Isha", 1234567890, "Sambhaji Nagar"),(15, "Omkar", 1234567890, "Lanja");
+alter table patient add column problem varchar(50);
+alter table patient rename column problem to disease;
