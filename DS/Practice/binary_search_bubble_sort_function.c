@@ -1,7 +1,7 @@
 #include <stdio.h>
-void binary_search(int arr[], int n, int s)
+void binary_search(int *arr, int n, int s)
 {
-    int beg, end, mid, p;
+    int beg, end, mid, p = -1;
     beg = 0;
     end = n;
     while(beg <= end)
@@ -10,7 +10,7 @@ void binary_search(int arr[], int n, int s)
         if(arr[mid] == s)
         {
             p = mid;
-            printf("\nElement found at %dth position", p);
+
             break;
         }
         else if(arr[mid] > s)
@@ -23,22 +23,23 @@ void binary_search(int arr[], int n, int s)
         }
 
     }
-    if(p == -1)
+    if(p != -1)
+    {
+        printf("\nElement found at index %d", p);
+    }
+    else
     {
         printf("\n404: element not found");
     }
 }
 
-void bubble_sort(int arr[], int size)
+void bubble_sort(int *arr, int size, int search)
 {
-    int n = size, i, j, temp, pass = 0, comp = 0;
+    int n = size, i, j, temp;
     for(i = 0; i < n - 1; i++)
     {
-        pass++;
-        printf("\nPass %d\t", pass);
         for (j = 0; j < n - i - 1; j++)
         {
-            comp++;
             if(arr[j] > arr[j + 1])
             {
                 temp = arr[j];
@@ -46,34 +47,25 @@ void bubble_sort(int arr[], int size)
                 arr[j + 1] = temp;
             }
         }
-        for(j = 0; j < n; j++)
-        {
-            printf("%d\t", arr[j]);
-        }
     }
-    printf("\nNo. of passes: %d\nNo. of comparision: %d", pass, comp);
-    printf("\nArray after sorting:\t");
-    for(i = 0; i < n; i++)
-    {
-        printf("%d\t", arr[i]);
-    }
-    binary_search(arr, n, )
+    binary_search(arr, n, search);
 }
 
 int main()
 {
-    int n, i;
+    int n, i, search;
     printf("Enter size of array: ");
     scanf("%d", &n);
     int arr[n];
-    printf("Size: %d\n", (sizeof arr / sizeof arr[0]));
     printf("Enter array element:\n");
     for(i = 0; i < n; i++)
     {
         printf("arr[%d] = ", i);
         scanf("%d", &arr[i]);
     }
+    printf("Enter element to search: ");
+    scanf("%d", &search);
     //Bubble sorting
-    bubble_sort(arr, n);
+    bubble_sort(arr, n, search);
     return 0;
 }
